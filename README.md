@@ -1,2 +1,80 @@
 # TaskManagerApp
+
 CRUD operations to manage task life cycle
+
+
+
+Hello!
+
+I have created this spring boot application based in Java to create task objects and carry out certain operations on them. 
+
+
+
+Set Up on local:
+
+
+
+1. Please clone this project and import as a existing maven project into your workspace, choose the folder "TaskManager" as this would be the correct folder containing pom.xml to be imported into your IDE.
+
+2\. Run a "clean install" command for this project, to download all dependencies required for the project to run successfully. 
+
+3\. After all dependencies were installed correctly, the build would succeed. 
+
+4\. Now right click on the "TaskManager" entry in the boot dashboard, and run the application, it does not need any property or profile configurations. The service should be up on port 8080.
+
+
+
+Testing through postman:
+
+
+
+You can validate the rest endpoints through postman with the following URLs and request bodies applicable,
+
+
+
+1. GET http://localhost:8080/tasks => returns all tasks created.
+2. GET http://localhost:8080/tasks?status={status} => returns all tasks with a  particular status, replace "{status}" with PENDING, IN\_PROGRESS or DONE.
+3. GET http://localhost:8080/tasks?page=2\&size=10 =>paginated response can also be requested like so. 
+4. POST http://localhost:8080/tasks => used to create a task, request body : 
+
+{
+
+"title": "call a friend",
+
+"description": "video call my friend tomorrow",
+
+"status": "PENDING",
+
+"dueDate": "2026-02-09"
+
+}
+
+
+
+5\. GET http://localhost:8080/tasks/{id} => fetch a specific task detail by passing its respective id in the query string, replace "{id}" with the corresponding id you can get when you fetch all tasks.
+
+
+
+6\. PUT http://localhost:8080/tasks/{id} => this is used to update a particular task with the given id. The request body is as follows :
+{
+
+&nbsp; "status": "DONE",
+
+&nbsp; "description": "Paid via UPI"
+
+}
+
+
+
+7\. DELETE http://localhost:8080/tasks/{id} => deletes a particular task object from the in memory data storage, for a given id passed in the url.
+
+
+
+
+
+You will see appropriate status codes and messages when an exceptions occur. 
+
+
+
+
+
